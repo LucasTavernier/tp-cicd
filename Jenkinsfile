@@ -3,13 +3,13 @@ pipeline{
     stages{
         stage('Clean and Build'){
             steps{
-                sh 'mvn --version'
-                sh 'mvn clean install'
+                bat 'mvn --version'
+                bat 'mvn clean install'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
             post {
                 always {
@@ -19,7 +19,7 @@ pipeline{
         }
         stage('Deliver') { 
             steps {
-                sh 'mvn package' 
+                bat 'mvn package' 
             }
         }
     }
